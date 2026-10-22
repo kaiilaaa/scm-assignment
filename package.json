@@ -1,0 +1,5 @@
+{
+  "name": "cafe-site",
+  "scripts": { "lint": "eslint script.js" },
+  "devDependencies": { "eslint": "^8.57.0" }
+}
