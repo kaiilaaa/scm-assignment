@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Beige Brew | Minimalist Cafe</title>
+    
+    <!-- Import Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configure Tailwind with Custom Colors and Fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        beige: {
+                            50: '#faf9f6', // Very light beige background
+                            100: '#f5f5dc', // Standard beige
+                            200: '#e8e4c9', // Darker beige for borders/accents
+                            900: '#3b2f2f', // Espresso/Dark brown for text
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'], // Body text
+                        serif: ['Playfair Display', 'serif'], // Headings
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom styles for smooth scrolling and base text color */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: theme('colors.beige.50');
+            color: theme('colors.beige.900');
+        }
+        
+        /* Subtle fade-in animation */
+        .fade-in {
+            animation: fadeIn 1.2s ease-in forwards;
+            opacity: 0;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <!-- Navigation Bar -->
+    <nav class="w-full py-6 px-8 flex justify-between items-center bg-beige-50 shadow-sm sticky top-0 z-50">
+        <div class="text-2xl font-serif font-bold tracking-wide">
+            <a href="#">The Beige Brew</a>
+        </div>
+        <ul class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest">
+            <li><a href="#" class="hover:text-amber-700 transition-colors">Home</a></li>
+            <li><a href="#menu" class="hover:text-amber-700 transition-colors">Menu</a></li>
+            <li><a href="#about" class="hover:text-amber-700 transition-colors">About</a></li>
+        </ul>
+        <button onclick="orderNow()" class="hidden md:block bg-beige-900 text-beige-50 px-6 py-2 rounded-full text-sm font-semibold hover:bg-amber-800 transition-colors">
+            Order Now
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="flex-grow flex flex-col items-center justify-center text-center px-4 py-32 fade-in relative overflow-hidden bg-beige-100">
+        <div class="max-w-3xl relative z-10">
+            <h1 class="font-serif text-5xl md:text-7xl font-bold mb-6 text-beige-900 leading-tight">
+                Simplicity in <br> Every Sip.
+            </h1>
+            <p class="font-sans text-lg md:text-xl text-beige-900/80 mb-10 font-light">
+                Experience the finest ethically sourced beans and artisanal pastries in a space designed for peace, clarity, and comfort.
+            </p>
+            <a href="#menu" class="inline-block bg-transparent border-2 border-beige-900 text-beige-900 px-8 py-3 rounded-full text-sm font-semibold uppercase tracking-wider hover:bg-beige-900 hover:text-beige-50 transition-all duration-300">
+                View Our Menu
+            </a>
+        </div>
+    </header>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-24 px-4 md:px-8 max-w-6xl mx-auto w-full">
+        <div class="text-center mb-16">
+            <h2 class="font-serif text-4xl font-bold mb-4">Our Offerings</h2>
+            <div class="w-16 h-0.5 bg-beige-900 mx-auto opacity-50"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-16">
+            <!-- Coffee Category -->
+            <div>
+                <h3 class="font-serif text-2xl font-semibold mb-8 text-center md:text-left text-amber-800">Coffee</h3>
+                <div class="space-y-6">
+                    <!-- Item 1 -->
+                    <div class="flex justify-between items-baseline border-b border-beige-200 pb-2">
+                        <div>
+                            <h4 class="font-semibold text-lg">Espresso</h4>
+                            <p class="text-sm font-light opacity-80 mt-1">Single origin, rich and balanced</p>
+                        </div>
+                        <span class="font-serif font-semibold text-lg">$3.50</span>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="flex justify-between items-baseline border-b border-beige-200 pb-2">
+                        <div>
+                            <h4 class="font-semibold text-lg">Pour Over</h4>
+                            <p class="text-sm font-light opacity-80 mt-1">Rotating seasonal single origin filter</p>
+                        </div>
+                        <span class="font-serif font-semibold text-lg">$4.50</span>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="flex justify-between items-baseline border-b border-beige-200 pb-2">
+                        <div>
+                            <h4 class="font-semibold text-lg">Vanilla Oat Latte</h4>
+                            <p class="text-sm font-light opacity-80 mt-1">House-made vanilla syrup, creamy oat milk</p>
+                        </div>
+                        <span class="font-serif font-semibold text-lg">$5.50</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pastry Category -->
+            <div>
+                <h3 class="font-serif text-2xl font-semibold mb-8 text-center md:text-left text-amber-800">Pastries</h3>
+                <div class="space-y-6">
+                    <!-- Item 1 -->
+                    <div class="flex justify-between items-baseline border-b border-beige-200 pb-2">
+                        <div>
+                            <h4 class="font-semibold text-lg">Butter Croissant</h4>
+                            <p class="text-sm font-light opacity-80 mt-1">Flaky, golden, and baked fresh daily</p>
+                        </div>
+                        <span class="font-serif font-semibold text-lg">$4.00</span>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="flex justify-between items-baseline border-b border-beige-200 pb-2">
+                        <div>
+                            <h4 class="font-semibold text-lg">Almond Tart</h4>
+                            <p class="text-sm font-light opacity-80 mt-1">Sweet almond frangipane in a crisp shell</p>
+                        </div>
+                        <span class="font-serif font-semibold text-lg">$5.00</span>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="flex justify-between items-baseline border-b border-beige-200 pb-2">
+                        <div>
+                            <h4 class="font-semibold text-lg">Banana Walnut Bread</h4>
+                            <p class="text-sm font-light opacity-80 mt-1">Warm, spiced, and deeply comforting</p>
+                        </div>
+                        <span class="font-serif font-semibold text-lg">$3.75</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="about" class="bg-beige-900 text-beige-50 py-12 mt-auto">
+        <div class="max-w-6xl mx-auto px-4 md:px-8 grid md:grid-cols-3 gap-8 text-center md:text-left">
+            <div>
+                <h4 class="font-serif text-xl font-bold mb-4">The Beige Brew</h4>
+                <p class="text-sm font-light opacity-80">Serving clarity in a cup since 2026. A place to pause, reflect, and enjoy the simple things.</p>
+            </div>
+            <div>
+                <h4 class="font-serif text-xl font-bold mb-4">Hours & Location</h4>
+                <p class="text-sm font-light opacity-80 mb-1">Mon - Fri: 7am - 5pm</p>
+                <p class="text-sm font-light opacity-80 mb-1">Sat - Sun: 8am - 4pm</p>
+                <p class="text-sm font-light opacity-80 mt-3">123 Minimalist Ave.<br>Design City, DC 10101</p>
+            </div>
+            <div>
+                <h4 class="font-serif text-xl font-bold mb-4">Connect</h4>
+                <div class="flex flex-col space-y-2 text-sm font-light">
+                    <a href="#" class="hover:text-amber-500 transition-colors">Instagram</a>
+                    <a href="#" class="hover:text-amber-500 transition-colors">Twitter</a>
+                    <a href="mailto:hello@beigebrew.com" class="hover:text-amber-500 transition-colors">hello@beigebrew.com</a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-6xl mx-auto px-4 mt-12 pt-8 border-t border-beige-50/20 text-center text-sm font-light opacity-60">
+            &copy; 2026 The Beige Brew. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Simple Interactivity Script -->
+    <script>
+        function orderNow() {
+            // A simple message box instead of alert() per requirements
+            const msgBox = document.createElement('div');
+            msgBox.className = 'fixed top-4 right-4 bg-beige-900 text-beige-50 px-6 py-4 rounded shadow-lg font-sans text-sm z-50 animate-bounce';
+            msgBox.innerHTML = 'Online ordering is currently paused. Please visit us in-store!';
+            document.body.appendChild(msgBox);
+            
+            setTimeout(() => {
+                msgBox.remove();
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
